@@ -18,6 +18,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"hey/requester"
 	"io/ioutil"
 	"math"
 	"net/http"
@@ -28,8 +29,6 @@ import (
 	"runtime"
 	"strings"
 	"time"
-
-	"github.com/rakyll/hey/requester"
 )
 
 const (
@@ -253,14 +252,14 @@ func main() {
 }
 
 func errAndExit(msg string) {
-	fmt.Fprintf(os.Stderr, msg)
+	fmt.Fprintf(os.Stderr, "%s", msg)
 	fmt.Fprintf(os.Stderr, "\n")
 	os.Exit(1)
 }
 
 func usageAndExit(msg string) {
 	if msg != "" {
-		fmt.Fprintf(os.Stderr, msg)
+		fmt.Fprintf(os.Stderr, "%s", msg)
 		fmt.Fprintf(os.Stderr, "\n\n")
 	}
 	flag.Usage()
